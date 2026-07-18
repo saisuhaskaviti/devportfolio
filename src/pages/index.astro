@@ -1,7 +1,6 @@
 ---
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
-import About from "../components/About.astro";
 import Projects from "../components/Projects.astro";
 import Experience from "../components/Experience.astro";
 import Education from "../components/Education.astro";
@@ -10,7 +9,7 @@ import { siteConfig } from "../config";
 import "../styles/global.css";
 ---
 
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -25,15 +24,35 @@ import "../styles/global.css";
     />
     <title>{siteConfig.name} - {siteConfig.title}</title>
   </head>
-  <body>
+  <body class="bg-[#0f172a] text-[#f8fafc]">
     <Header />
-    <section>
+    <main>
       <Hero />
-      <About />
       <Projects />
-      <Experience />
-      <Education />
-    </section>
+      
+      <!-- Resume Section -->
+      <div id="resume" class="pt-16">
+        <div class="px-8 sm:px-12 md:px-16 lg:px-24 pb-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
+            <div class="lg:col-span-4">
+              <h2 class="text-3xl sm:text-4xl md:text-5xl xl:text-7xl font-bold text-white">
+                Resume
+              </h2>
+              <div
+                class="w-[75px] h-[5px] mt-2 rounded-full"
+                style={`background-color: ${siteConfig.accentColor}`}
+              />
+            </div>
+            <div class="lg:col-span-8 hidden lg:block">
+              <!-- Empty space for layout balance -->
+            </div>
+          </div>
+        </div>
+        
+        <Experience />
+        <Education />
+      </div>
+    </main>
     <Footer />
   </body>
 </html>
